@@ -49,11 +49,40 @@ const Nav = () => {
               <Image
                 className='rounded-full'
                 alt='profile'
-                width={30}
-                height={30}
+                width={37}
+                height={37}
                 src='/assets/images/logo.svg'
               />
             </Link>
+          </div>
+        ) : (
+          <>
+            {providers &&
+              Object.values(providers).map((provider) => (
+                <button
+                  key={provider.name}
+                  type='button'
+                  className='black_btn'
+                  onClick={() => signIn(provider.id)}
+                >
+                  Sign In
+                </button>
+              ))}
+          </>
+        )}
+      </div>
+      {/* mobile navigation */}
+      <div className='sm:hidden flex-relative'>
+        {isUserLoggedIn ? (
+          <div className='flex'>
+            <Image
+              width={37}
+              height={37}
+              className='rounded-full'
+              alt='profile'
+              src='/assets/images/logo.svg'
+              onClick={() => {}}
+            />
           </div>
         ) : (
           <>
